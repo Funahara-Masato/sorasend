@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SORASEND — 先に夜になったから、パパの分まで見ておいた。</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="starfield" id="starfield"></div>
+
+  <!-- ① コンセプト -->
+  <div class="screen" id="sConc">
+    <div class="conc-inner">
+      <p class="eyecatch">FATHER'S DAY × 時差</p>
+      <h1>先に夜になったから、<br>パパの分まで<br>見ておいた。</h1>
+      <p class="conc-sub">
+        海外にいるお父さんには、まだ夜が来ていない。<br>
+        だから先に夜になった子どもが、夜空を「とっておく」。
+      </p>
+      <button class="btn-main" id="btnStart">体験する</button>
+    </div>
+  </div>
+
+  <!-- ② 場所選択 -->
+  <div class="screen hidden" id="sSetup">
+    <div class="setup-inner">
+      <p class="eyecatch">STEP 1 / 3</p>
+      <h2>お父さんはどこにいますか？</h2>
+      <div class="loc-grid" id="locGrid"></div>
+      <div class="diff-box hidden" id="diffBox">
+        <p class="diff-main" id="diffMain"></p>
+        <p class="diff-sub" id="diffSub"></p>
+      </div>
+      <button class="btn-main hidden" id="btnNext1">夜空を撮る →</button>
+    </div>
+  </div>
+
+  <!-- ③ 夜空キャプチャ -->
+  <div class="screen hidden" id="sCapture">
+    <canvas id="skyCanvas"></canvas>
+    <div class="capture-ui" id="captureUi">
+      <div class="capture-msg">
+        <p class="eyecatch" style="text-align:center">STEP 2 / 3</p>
+        <p class="capture-title">今夜の空を<br>お父さんに届けよう</p>
+      </div>
+      <div class="msg-input-wrap">
+        <textarea id="msgInput" class="msg-input" maxlength="60" placeholder="一言メッセージ（任意・60文字）"></textarea>
+      </div>
+      <div class="capture-btns">
+        <button class="btn-main" id="btnSendCanvas">この空を送る</button>
+        <label class="btn-sub-label">
+          写真を使う
+          <input type="file" id="fileInput" accept="image/*">
+        </label>
+      </div>
+    </div>
+    <div class="photo-preview hidden" id="photoPreview">
+      <img id="previewImg" alt="">
+      <div class="preview-actions">
+        <button class="btn-main" id="btnSendPhoto">この空を送る</button>
+        <button class="btn-ghost" id="btnCancelPhoto">キャンセル</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ カウントダウン -->
+  <div class="screen hidden" id="sSend">
+    <div class="send-sky" id="sendSky"></div>
+    <div class="send-ui">
+      <div class="sent-chip">✓ 空を送りました</div>
+      <p class="arriving">お父さんのところに<br>夜が届くのは</p>
+      <div class="cd" id="cd">
+        <div class="cd-block"><span id="cdH">02</span><label>時間</label></div>
+        <div class="cd-colon">:</div>
+        <div class="cd-block"><span id="cdM">00</span><label>分</label></div>
+        <div class="cd-colon">:</div>
+        <div class="cd-block"><span id="cdS">00</span><label>秒</label></div>
+      </div>
+      <p class="cd-after">後</p>
+      <p class="dad-time" id="dadTime"></p>
+      <button class="btn-demo" id="btnDemo">▶ デモ：今すぐ届ける</button>
+    </div>
+  </div>
+
+  <!-- ⑤ お父さん視点 -->
+  <div class="screen hidden" id="sDeliv">
+    <div class="deliv-sky" id="delivSky"></div>
+    <div class="deliv-ui">
+      <div class="notif">📱 通知が届きました</div>
+      <blockquote class="notif-msg">「先に夜になったから、<br>パパの分まで見ておいたよ」</blockquote>
+      <div class="deliv-user-msg hidden" id="delivMsg">
+        <p class="deliv-msg-label">メッセージ</p>
+        <p class="deliv-msg-text" id="delivMsgText"></p>
+      </div>
+      <p class="deliv-time">日本時間 <span id="capTime"></span> に撮影</p>
+      <p class="deliv-poem">あなたがこの空を見るころ、<br>子どもはもう眠っているかもしれない。</p>
+      <button class="btn-main" id="btnRetry">もう一度体験する</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
