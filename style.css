@@ -233,8 +233,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 80px;
-  gap: 20px;
+  padding-bottom: 48px;
+  gap: 0;
+}
+.photo-preview::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  z-index: 0;
+  pointer-events: none;
 }
 .photo-preview img {
   position: absolute;
@@ -248,8 +257,23 @@ body {
   position: relative;
   z-index: 2;
   display: flex;
+  flex-direction: column;
   gap: 12px;
   align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 24px;
+}
+.preview-actions .msg-input-wrap {
+  width: 100%;
+}
+.preview-actions .msg-input {
+  background: rgba(0,0,0,0.45);
+  border-color: rgba(255,255,255,0.35);
+}
+.preview-actions .btn-main,
+.preview-actions .btn-ghost {
+  width: 100%;
 }
 
 /* ===== ④ SENDING ===== */
@@ -351,10 +375,58 @@ body {
   filter: brightness(0);
   z-index: 0;
   animation: revealSky 2.5s ease 0.3s forwards;
+  transition: filter 0.8s ease;
+  cursor: default;
 }
 @keyframes revealSky {
   to { filter: brightness(0.3); }
 }
+.deliv-sky.fullview {
+  animation: none;
+  filter: brightness(1) !important;
+}
+.deliv-ui {
+  transition: opacity 0.5s ease;
+}
+.deliv-ui.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.btn-sky-view {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 11px 0;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-sky-view:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+.btn-close-sky {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  font-size: 1.4rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-close-sky:hover { background: rgba(0,0,0,0.9); }
 .deliv-ui {
   position: relative;
   z-index: 1;

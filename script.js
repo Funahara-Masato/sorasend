@@ -1,5 +1,5 @@
 // ============================================================
-//  SORASEND — 先に夜になったから、パパの分まで見ておいた
+//  SORASEND — 先に夜になったから、お父さんの分まで見ておいた
 // ============================================================
 
 const LOCATIONS = [
@@ -208,7 +208,7 @@ fileInput.addEventListener('change', (e) => {
 });
 
 document.getElementById('btnSendPhoto').addEventListener('click', () => {
-  userMessage = document.getElementById('msgInput').value.trim();
+  userMessage = document.getElementById('msgInputPhoto').value.trim();
   captureTime = new Date().toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
   goToSend();
 });
@@ -291,6 +291,20 @@ function deliver() {
     msgBox.classList.add('hidden');
   }
 }
+
+// ============================================================
+//  夜空フルビュー
+// ============================================================
+document.getElementById('btnViewSky').addEventListener('click', () => {
+  document.getElementById('delivSky').classList.add('fullview');
+  document.getElementById('delivUi').classList.add('fade-out');
+  document.getElementById('btnCloseSky').classList.remove('hidden');
+});
+document.getElementById('btnCloseSky').addEventListener('click', () => {
+  document.getElementById('delivSky').classList.remove('fullview');
+  document.getElementById('delivUi').classList.remove('fade-out');
+  document.getElementById('btnCloseSky').classList.add('hidden');
+});
 
 // ============================================================
 //  Retry

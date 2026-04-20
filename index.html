@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SORASEND — 先に夜になったから、パパの分まで見ておいた。</title>
+  <title>SORASEND — 先に夜になったから、お父さんの分まで見ておいた。</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
   <div class="screen" id="sConc">
     <div class="conc-inner">
       <p class="eyecatch">FATHER'S DAY × 時差</p>
-      <h1>先に夜になったから、<br>パパの分まで<br>見ておいた。</h1>
+      <h1>先に夜になったから、<br>お父さんの分まで<br>見ておいた。</h1>
       <p class="conc-sub">
         海外にいるお父さんには、まだ夜が来ていない。<br>
         だから先に夜になった子どもが、夜空を「とっておく」。
@@ -59,6 +59,9 @@
     <div class="photo-preview hidden" id="photoPreview">
       <img id="previewImg" alt="">
       <div class="preview-actions">
+        <div class="msg-input-wrap">
+          <textarea id="msgInputPhoto" class="msg-input" maxlength="60" placeholder="一言メッセージ（任意・60文字）"></textarea>
+        </div>
         <button class="btn-main" id="btnSendPhoto">この空を送る</button>
         <button class="btn-ghost" id="btnCancelPhoto">キャンセル</button>
       </div>
@@ -87,15 +90,17 @@
   <!-- ⑤ お父さん視点 -->
   <div class="screen hidden" id="sDeliv">
     <div class="deliv-sky" id="delivSky"></div>
-    <div class="deliv-ui">
+    <button class="btn-close-sky hidden" id="btnCloseSky">✕</button>
+    <div class="deliv-ui" id="delivUi">
       <div class="notif">📱 通知が届きました</div>
-      <blockquote class="notif-msg">「先に夜になったから、<br>パパの分まで見ておいたよ」</blockquote>
+      <blockquote class="notif-msg">「先に夜になったから、<br>お父さんの分まで見ておいたよ」</blockquote>
       <div class="deliv-user-msg hidden" id="delivMsg">
         <p class="deliv-msg-label">メッセージ</p>
         <p class="deliv-msg-text" id="delivMsgText"></p>
       </div>
       <p class="deliv-time">日本時間 <span id="capTime"></span> に撮影</p>
       <p class="deliv-poem">あなたがこの空を見るころ、<br>子どもはもう眠っているかもしれない。</p>
+      <button class="btn-sky-view" id="btnViewSky">夜空をちゃんと見る</button>
       <button class="btn-main" id="btnRetry">もう一度体験する</button>
     </div>
   </div>
